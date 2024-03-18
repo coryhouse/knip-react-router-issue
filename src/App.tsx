@@ -1,13 +1,12 @@
-import { useState } from "react";
-import "./App.css";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+
+const router = createBrowserRouter([
+  { index: true, lazy: () => import("./PageOne") },
+  { path: "/two", lazy: () => import("./PageTwo") },
+]);
 
 function App() {
-  const routes = [
-    { index: true, lazy: () => import("./PageOne") },
-    { index: true, lazy: () => import("./PageTwo") },
-  ];
-
-  return <></>;
+  return <RouterProvider router={router} />;
 }
 
 export default App;
